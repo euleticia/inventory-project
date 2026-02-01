@@ -1,0 +1,23 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.headerCell {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  background-color: #f3f4f6;
+}
+
+.cell {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.checkboxCol {
+  width: 48px;
+  text-align: center;
+}

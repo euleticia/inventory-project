@@ -1,0 +1,7 @@
+.row:hover {
+  background-color: #f9fafb;
+}
+
+.inactive {
+  opacity: 0.6;
+}
