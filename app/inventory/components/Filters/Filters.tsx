@@ -25,6 +25,8 @@ export default function Filters({
         <option value="">Todas categorias</option>
         <option value="Eletrônicos">Eletrônicos</option>
         <option value="Acessórios">Acessórios</option>
+        <option value="Componentes">Componentes</option>
+        <option value="Promoções">Promoções</option>
       </select>
     </div>
   );

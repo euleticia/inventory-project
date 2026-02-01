@@ -27,9 +27,17 @@ export default function ProductTable({ products, dispatch }: Props) {
       </thead>
 
       <tbody>
-        {products.map((product) => (
-          <ProductRow key={product.id} product={product} dispatch={dispatch} />
-        ))}
+        {products.length === 0 ? (
+          <tr>
+            <td colSpan={6} className={styles.empty}>
+              Nenhum item encontrado
+            </td>
+          </tr>
+        ) : (
+          products.map((product) => (
+            <ProductRow key={product.id} product={product} dispatch={dispatch} />
+          ))
+        )}
       </tbody>
     </table>
   );

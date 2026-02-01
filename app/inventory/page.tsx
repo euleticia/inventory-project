@@ -31,7 +31,6 @@ export default function InventoryPage() {
   );
 
   if (state.loading) return <p>Carregando...</p>;
-  if (!filteredProducts.length) return <p>Nenhum produto encontrado.</p>;
 
   return (
     <>
