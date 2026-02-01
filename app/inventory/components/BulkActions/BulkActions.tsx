@@ -6,6 +6,7 @@ import styles from './BulkActions.module.css';
 
 interface Props {
   dispatch: React.Dispatch<ProductAction>;
+  hasSelectedProducts: boolean;
 }
 
 const CATEGORIES = [
@@ -16,12 +17,23 @@ const CATEGORIES = [
   'Promoções'
 ];
 
-export default function BulkActions({ dispatch }: Props) {
+export default function BulkActions({ dispatch, hasSelectedProducts }: Props) {
   const [showModal, setShowModal] = useState(false);
+  const [showDiscountModal, setShowDiscountModal] = useState(false);
+  const [discountValue, setDiscountValue] = useState('10');
 
   const handleChangeCategory = (category: string) => {
     dispatch({ type: 'CHANGE_CATEGORY', payload: category });
     setShowModal(false);
+  };
+
+  const handleApplyDiscount = () => {
+    const discount = parseFloat(discountValue);
+    if (discount > 0 && discount <= 100) {
+      dispatch({ type: 'APPLY_DISCOUNT', payload: discount });
+      setShowDiscountModal(false);
+      setDiscountValue('10');
+    }
   };
 
   return (
@@ -30,17 +42,17 @@ export default function BulkActions({ dispatch }: Props) {
         <button
           className={styles.button}
           onClick={() => setShowModal(true)}
+          disabled={!hasSelectedProducts}
         >
           Alterar Categoria
         </button>
 
         <button
           className={`${styles.button} ${styles.secondary}`}
-          onClick={() =>
-            dispatch({ type: 'APPLY_DISCOUNT', payload: 10 })
-          }
+          onClick={() => setShowDiscountModal(true)}
+          disabled={!hasSelectedProducts}
         >
-          Aplicar 10% Desconto
+          Aplicar Desconto
         </button>
       </div>
 
@@ -65,6 +77,39 @@ export default function BulkActions({ dispatch }: Props) {
             >
               Cancelar
             </button>
+          </div>
+        </div>
+      )}
+
+      {showDiscountModal && (
+        <div className={styles.modalOverlay} onClick={() => setShowDiscountModal(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <h2>Aplicar Desconto</h2>
+            <div className={styles.discountInput}>
+              <input
+                type="number"
+                min="0"
+                max="100"
+                value={discountValue}
+                onChange={(e) => setDiscountValue(e.target.value)}
+                placeholder="Digite a porcentagem"
+              />
+              <span>%</span>
+            </div>
+            <div className={styles.discountButtons}>
+              <button
+                className={`${styles.button} ${styles.secondary}`}
+                onClick={handleApplyDiscount}
+              >
+                Aplicar
+              </button>
+              <button
+                className={`${styles.button} ${styles.cancel}`}
+                onClick={() => setShowDiscountModal(false)}
+              >
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
       )}

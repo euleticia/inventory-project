@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { Product } from "../../types";
 import { ProductAction } from "../../state/productTypes";
 import ProductRow from "../ProductRow/ProductRow";
@@ -11,12 +12,31 @@ interface Props {
 }
 
 export default function ProductTable({ products, dispatch }: Props) {
+  const checkboxRef = useRef<HTMLInputElement>(null);
+  const allSelected = products.length > 0 && products.every(p => p.selected);
+  const someSelected = products.some(p => p.selected);
+
+  const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({ type: 'SELECT_ALL', payload: e.target.checked });
+  };
+
+  useEffect(() => {
+    if (checkboxRef.current) {
+      checkboxRef.current.indeterminate = someSelected && !allSelected;
+    }
+  }, [someSelected, allSelected]);
+
   return (
     <table className={styles.table}>
       <thead>
         <tr>
           <th className={`${styles.headerCell} ${styles.checkboxCol}`}>
-            <input type="checkbox" />
+            <input
+              ref={checkboxRef}
+              type="checkbox"
+              checked={allSelected}
+              onChange={handleSelectAll}
+            />
           </th>
           <th className={styles.headerCell}>Nome</th>
           <th className={styles.headerCell}>Categoria</th>

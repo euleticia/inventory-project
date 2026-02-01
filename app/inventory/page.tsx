@@ -30,6 +30,8 @@ export default function InventoryPage() {
     (category ? p.category === category : true)
   );
 
+  const hasSelectedProducts = state.products.some(p => p.selected);
+
   if (state.loading) return <p>Carregando...</p>;
 
   return (
@@ -43,7 +45,7 @@ export default function InventoryPage() {
         onCategoryChange={setCategory}
       />
 
-      <BulkActions dispatch={dispatch} />
+      <BulkActions dispatch={dispatch} hasSelectedProducts={hasSelectedProducts} />
 
       <ProductTable
         products={filteredProducts}

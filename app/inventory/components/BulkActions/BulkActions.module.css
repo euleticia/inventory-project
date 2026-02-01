@@ -12,6 +12,14 @@
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button:disabled {
+  background-color: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .button.secondary {
@@ -26,6 +34,10 @@
 
 .button:hover {
   opacity: 0.9;
+}
+
+.button:disabled:hover {
+  opacity: 0.6;
 }
 
 .modalOverlay {
@@ -78,4 +90,47 @@
 .categoryOption:hover {
   background-color: #f3f4f6;
   border-color: #2563eb;
+}
+
+.discountInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.discountInput input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.discountInput input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.discountInput span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.discountButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.discountButtons .button {
+  flex: 1;
+  margin-top: 0;
+}
+
+.discountButtons .button.cancel {
+  margin-top: 0;
+  width: auto;
 }
