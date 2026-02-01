@@ -27,6 +27,7 @@ export default function Filters({
         <option value="Acessórios">Acessórios</option>
         <option value="Componentes">Componentes</option>
         <option value="Promoções">Promoções</option>
+        <option value="Armazenamento">Armazenamento</option>
       </select>
     </div>
   );

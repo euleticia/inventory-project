@@ -94,6 +94,52 @@ export async function GET() {
       status: 'active',
       selected: false
     }
+    ,
+    {
+      id: 11,
+      name: 'Monitor 27"',
+      category: 'Eletrônicos',
+      price: 1800,
+      stock: 6,
+      status: 'active',
+      selected: false
+    },
+    {
+      id: 12,
+      name: 'Teclado Wireless',
+      category: 'Acessórios',
+      price: 220,
+      stock: 40,
+      status: 'active',
+      selected: false
+    },
+    {
+      id: 13,
+      name: 'Webcam Full HD',
+      category: 'Acessórios',
+      price: 300,
+      stock: 18,
+      status: 'active',
+      selected: false
+    },
+    {
+      id: 14,
+      name: 'Cadeira Gamer',
+      category: 'Componentes',
+      price: 950,
+      stock: 4,
+      status: 'active',
+      selected: false
+    },
+    {
+      id: 15,
+      name: 'Mousepad XL',
+      category: 'Acessórios',
+      price: 60,
+      stock: 120,
+      status: 'active',
+      selected: false
+    }
   ];
 
   return NextResponse.json(products);
