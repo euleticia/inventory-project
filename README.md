@@ -1,38 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inventory Dashboard
 
-## Getting Started
+Um dashboard interativo para gerenciamento de inventário desenvolvido com **Next.js**, **React** e **TypeScript**.
 
-First, run the development server:
+## 🚀 Tecnologias
+
+- **Next.js 15+** - Framework React
+- **React 19+** - Interface de usuário
+- **TypeScript** - Tipagem estática
+- **Jest & React Testing Library** - Testes automatizados
+- **CSS Modules** - Estilos encapsulados
+
+## 📋 Funcionalidades
+
+- ✅ **Listagem de Produtos** - Visualize todos os produtos com informações detalhadas
+- 🔍 **Filtros Avançados** - Busque por nome e filtre por categoria
+- ✔️ **Seleção em Massa** - Selecione múltiplos produtos simultaneamente
+- 📦 **Ações em Lote** - Altere categoria, aplique descontos ou mude status de vários produtos
+- 📄 **Paginação** - Navegue entre páginas (10 itens por página)
+- ⚡ **Interface Responsiva** - Suporta tema claro e escuro
+
+## 🛠️ Instalação
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ▶️ Como Executar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Modo Desenvolvimento:**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse `http://localhost:3000` no seu navegador.
 
-## Learn More
+**Build para Produção:**
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🧪 Testes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Executar todos os testes
+npm test
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Modo watch
+npm test -- --watch
+```
 
-## Deploy on Vercel
+## 📝 Scripts Disponíveis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Script | Descrição |
+|--------|-----------|
+| `dev` | Inicia servidor de desenvolvimento |
+| `build` | Compila o projeto para produção |
+| `start` | Inicia servidor de produção |
+| `test` | Executa testes com Jest |
+| `lint` | Verifica código com ESLint |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# inventory-project
-A inventory project based in React using Next.Js.
+## 🎯 Componentes Principais
+
+- **ProductTable** - Tabela principal com lista de produtos
+- **ProductRow** - Linha individual da tabela
+- **Filters** - Barra de filtros e busca
+- **BulkActions** - Ações para múltiplos produtos
+- **LoadingSpinner** - Indicador de carregamento
+- **EmptyState** - Estado vazio com mensagem
+
+## 📖 Como Usar
+
+1. Acesse a página de inventário
+2. Use os filtros para buscar produtos específicos
+3. Selecione um ou mais produtos
+4. Aplique ações em lote (alterar categoria, aplicar desconto, mudar status)
+5. Navegue entre páginas conforme necessário
+
+---
+
+**Desenvolvido com ❤️ usando Next.js**
