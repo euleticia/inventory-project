@@ -17,7 +17,6 @@ Um dashboard interativo para gerenciamento de inventário desenvolvido com **Nex
 - ✔️ **Seleção em Massa** - Selecione múltiplos produtos simultaneamente
 - 📦 **Ações em Lote** - Altere categoria, aplique descontos ou mude status de vários produtos
 - 📄 **Paginação** - Navegue entre páginas (10 itens por página)
-- ⚡ **Interface Responsiva** - Suporta tema claro e escuro
 
 ## 🛠️ Instalação
 
