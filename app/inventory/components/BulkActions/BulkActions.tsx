@@ -3,19 +3,12 @@
 import { useState } from 'react';
 import { ProductAction } from '../../state/productTypes';
 import styles from './BulkActions.module.css';
+import { CATEGORIES } from '../../constants/categories';
 
 interface Props {
   dispatch: React.Dispatch<ProductAction>;
   hasSelectedProducts: boolean;
 }
-
-const CATEGORIES = [
-  'Eletrônicos',
-  'Acessórios',
-  'Componentes',
-  'Armazenamento',
-  'Promoções'
-];
 
 export default function BulkActions({ dispatch, hasSelectedProducts }: Props) {
   const [showModal, setShowModal] = useState(false);

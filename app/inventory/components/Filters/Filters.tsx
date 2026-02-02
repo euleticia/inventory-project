@@ -1,5 +1,6 @@
 'use client';
 import styles from './Filters.module.css';
+import { CATEGORIES } from '../../constants/categories';
 
 interface Props {
   search: string;
@@ -23,11 +24,9 @@ export default function Filters({
 
       <select className={styles.select} onChange={e => onCategoryChange(e.target.value)}>
         <option value="">Todas categorias</option>
-        <option value="Eletrônicos">Eletrônicos</option>
-        <option value="Acessórios">Acessórios</option>
-        <option value="Componentes">Componentes</option>
-        <option value="Promoções">Promoções</option>
-        <option value="Armazenamento">Armazenamento</option>
+        {CATEGORIES.map(cat => (
+          <option key={cat} value={cat}>{cat}</option>
+        ))}
       </select>
     </div>
   );
