@@ -20,6 +20,7 @@ const CATEGORIES = [
 export default function BulkActions({ dispatch, hasSelectedProducts }: Props) {
   const [showModal, setShowModal] = useState(false);
   const [showDiscountModal, setShowDiscountModal] = useState(false);
+  const [showStatusModal, setShowStatusModal] = useState(false);
   const [discountValue, setDiscountValue] = useState('10');
 
   const handleChangeCategory = (category: string) => {
@@ -34,6 +35,11 @@ export default function BulkActions({ dispatch, hasSelectedProducts }: Props) {
       setShowDiscountModal(false);
       setDiscountValue('10');
     }
+  };
+
+  const handleChangeStatus = (status: 'active' | 'inactive') => {
+    dispatch({ type: 'CHANGE_STATUS', payload: status });
+    setShowStatusModal(false);
   };
 
   return (
@@ -53,6 +59,14 @@ export default function BulkActions({ dispatch, hasSelectedProducts }: Props) {
           disabled={!hasSelectedProducts}
         >
           Aplicar Desconto
+        </button>
+
+        <button
+          className={`${styles.button} ${styles.tertiary}`}
+          onClick={() => setShowStatusModal(true)}
+          disabled={!hasSelectedProducts}
+        >
+          Alterar Status
         </button>
       </div>
 
@@ -110,6 +124,34 @@ export default function BulkActions({ dispatch, hasSelectedProducts }: Props) {
                 Cancelar
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {showStatusModal && (
+        <div className={styles.modalOverlay} onClick={() => setShowStatusModal(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <h2>Alterar Status</h2>
+            <div className={styles.statusList}>
+              <button
+                className={styles.statusOption}
+                onClick={() => handleChangeStatus('active')}
+              >
+                ✓ Ativar
+              </button>
+              <button
+                className={styles.statusOption}
+                onClick={() => handleChangeStatus('inactive')}
+              >
+                ✗ Desativar
+              </button>
+            </div>
+            <button
+              className={`${styles.button} ${styles.cancel}`}
+              onClick={() => setShowStatusModal(false)}
+            >
+              Cancelar
+            </button>
           </div>
         </div>
       )}

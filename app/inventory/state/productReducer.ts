@@ -59,6 +59,14 @@ export function productReducer(
         )
       };
 
+    case 'CHANGE_STATUS':
+      return {
+        ...state,
+        products: state.products.map(p =>
+          p.selected ? { ...p, status: action.payload } : p
+        )
+      };
+
     default:
       return state;
   }

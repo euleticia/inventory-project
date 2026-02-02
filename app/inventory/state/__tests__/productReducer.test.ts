@@ -152,4 +152,40 @@ describe('productReducer', () => {
     
     expect(state.products[0].price).toBe(75);
   });
+
+  it('handles CHANGE_STATUS action to active', () => {
+    const stateWithProducts = {
+      ...initialState,
+      products: [
+        { ...mockProduct, selected: true, status: 'inactive' },
+        { ...mockProduct, id: 2, selected: false, status: 'inactive' }
+      ]
+    };
+
+    const state = productReducer(stateWithProducts, {
+      type: 'CHANGE_STATUS',
+      payload: 'active'
+    });
+    
+    expect(state.products[0].status).toBe('active');
+    expect(state.products[1].status).toBe('inactive');
+  });
+
+  it('handles CHANGE_STATUS action to inactive', () => {
+    const stateWithProducts = {
+      ...initialState,
+      products: [
+        { ...mockProduct, selected: true, status: 'active' },
+        { ...mockProduct, id: 2, selected: false, status: 'active' }
+      ]
+    };
+
+    const state = productReducer(stateWithProducts, {
+      type: 'CHANGE_STATUS',
+      payload: 'inactive'
+    });
+    
+    expect(state.products[0].status).toBe('inactive');
+    expect(state.products[1].status).toBe('active');
+  });
 });

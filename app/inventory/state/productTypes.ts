@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import { Product, ProductStatus } from '../types';
 
 export type ProductAction =
   | { type: 'SET_PRODUCTS'; payload: Product[] }
@@ -6,4 +6,5 @@ export type ProductAction =
   | { type: 'SELECT_ALL'; payload: boolean }
   | { type: 'CHANGE_CATEGORY'; payload: string }
   | { type: 'APPLY_DISCOUNT'; payload: number }
+  | { type: 'CHANGE_STATUS'; payload: ProductStatus }
   | { type: 'SET_LOADING'; payload: boolean };
