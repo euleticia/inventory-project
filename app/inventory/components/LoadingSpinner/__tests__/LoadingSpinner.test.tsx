@@ -21,6 +21,6 @@ describe('LoadingSpinner', () => {
     
     const container_div = container.querySelector('.container');
     expect(container_div).toBeInTheDocument();
-    expect(container_div?.children.length).toBe(2); // spinner + text
+    expect(container_div?.children.length).toBe(2);
   });
 });

@@ -30,6 +30,6 @@ describe('EmptyState', () => {
     
     const container_div = container.querySelector('.container');
     expect(container_div).toBeInTheDocument();
-    expect(container_div?.children.length).toBe(3); // icon + title + message
+    expect(container_div?.children.length).toBe(3);
   });
 });
