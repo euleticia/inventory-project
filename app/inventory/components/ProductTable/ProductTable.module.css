@@ -9,17 +9,36 @@
   text-align: left;
   font-weight: 600;
   background-color: #f3f4f6;
+  vertical-align: middle;
+}
+
+.headerCell.checkboxCol {
+  padding: 12px 8px;
+  text-align: center;
 }
 
 .cell {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.cell.checkboxCol {
+  padding: 12px 8px;
+  text-align: center;
 }
 
 .checkboxCol {
-  width: 48px;
-  text-align: center;
+  width: 50px;
+}
+
+.checkboxCol input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin: 0;
 }
 
 .empty {
